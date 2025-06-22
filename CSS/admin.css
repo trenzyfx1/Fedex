@@ -1,0 +1,107 @@
+/* DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 25px;
+    margin: auto;
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.admin-table {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.admin-table td {
+    padding: 10px;
+}
+
+.form-section {
+    flex: 1;
+    min-width: 320px; /* Slightly wider for mobile inputs */
+}
+
+.form-section table {
+    width: 100%;
+}
+
+.form-section h3 {
+    margin-bottom: 10px;
+    color: #4B0082;
+    font-size: 25px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin-top: 30px;
+    padding: 14px 24px;
+    background: #4B0082;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.btn:hover {
+    background: #3a006d;
+}
+
+/* ✅ Responsive section */
+@media (max-width: 768px) {
+    .admin-table {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-section {
+        width: 100%;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

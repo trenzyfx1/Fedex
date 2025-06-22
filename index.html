@@ -1,0 +1,291 @@
+<!-- DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fedEx | Express Delivery And Tracking services</title>
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">Fed<span>Ex</span></div>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Tracking</a></li>
+                <li><a href="#">Design & Print</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">&#9776;</div>
+    </header>
+
+    <section class="hero">
+        <section class="banner">
+            <div class="text-content">
+                <h1>FedEx can ship for less<br> than the Post Office.</h1>
+                <p>Two-day retail shipping, one flat rate. FedEx One Rate<sup>®</sup>.</p>
+                <a href="#" class="cta">SHIP WITH LOWER RATES</a>
+            </div>
+        </section>
+
+        <div class="tracking-section">
+            <div class="quick-links">
+                <a href="#">
+                    <i class="fa-solid fa-calculator"></i>
+                    Get a Quote
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-box"></i>
+                    Ship now
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-store"></i>
+                    Find FedEx Locations
+                </a>
+                <a href="#">
+                    <i class="fa-solid fa-headset"></i>
+                    Contact Support
+                </a>
+            </div>
+
+            <div class="tracking-input">
+                <input type="text" id="trackingInput" placeholder="Tracking number" required>
+                <button onclick="startTracking()">TRACK</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="packages">
+        <div class="packages-container">
+            <div class="packages-header">
+                <h2>Our Packages</h2>
+                <p>Buy and get your packages delivered to your doorstep now.....</p>
+            </div>
+
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <img src="./images/electronics.webp" alt="Electronics">
+                    <h3>Electronics</h3>
+                    <button>Order Now</button>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card">
+                    <img src="./images/clothing.avif" alt="Clothing">
+                    <h3>Clothing</h3>
+                    <button>Order Now</button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <img src="./images/Groceries.jpg" alt="Groceries">
+                    <h3>Groceries</h3>
+                    <button>Order Now</button>
+                </div>
+
+                <!-- Package 4 -->
+                <div class="package-card">
+                    <img src="./images/book-stack.jpg" alt="Books">
+                    <h3>Books</h3>
+                    <button>Order Now</button>
+                </div>
+
+                <!-- Package 5 -->
+                <div class="package-card">
+                    <img src="./images/shoes.avif" alt="Shoes">
+                    <h3>Shoes</h3>
+                    <button>Order Now</button>
+                </div>
+
+                <!-- Package 6 -->
+                <div class="package-card">
+                    <img src="./images/jewel.jpeg" alt="jewel">
+                    <h3>Jewelries</h3>
+                    <button>Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="fedex-section">
+        <div class="fedex-container">
+            <div class="fedex-text">
+                <h2>Why ship with FedEx?</h2>
+                <div class="fedex-columns">
+                    <div class="fedex-column">
+                        <h3>Innovative solutions for reliability & speed</h3>
+                        <p>Whether it's across states or worldwide, we prioritize the secure and swift arrival of your
+                            shipments.</p>
+                    </div>
+                    <div class="fedex-column">
+                        <h3>Premium shipping at professional rates</h3>
+                        <p>When you need reliable delivery and careful handling, trust FedEx to get your items where
+                            they need to go on time.</p>
+                    </div>
+                    <div class="fedex-column">
+                        <h3>We ship everywhere</h3>
+                        <p>From major cities to remote locations, your goods can reach worldwide.</p>
+                    </div>
+                    <div class="fedex-column">
+                        <h3>FedEx can ship for less than the Post Office</h3>
+                        <p>Two-day retail shipping, one flat rate. FedEx One Rate<sup>®</sup></p>
+                    </div>
+                </div>
+                <p class="fedex-note">FedEx doesn't ship anywhere sanctioned by the U.S.<br>
+                    Exclusions apply. Visit the <a href="#">One Rate</a> page to learn more.</p>
+                <a href="#" class="fedex-btn">START SHIPPING NOW</a>
+            </div>
+            <div class="fedex-image">
+                <img src="./images/delivery-man.jpg" alt="FedEx delivery man">
+            </div>
+        </div>
+    </section>
+
+    <section class="shipping-section">
+        <h2 class="section-title">Bright ways to ship this spring</h2>
+
+        <div class="shipping-grid">
+            <div class="shipping-card">
+                <img src="./images/May_POD_Dropoff_727x463.jpg" alt="Drop off package">
+                <h3>Drop off a package while you shop</h3>
+                <p>
+                    Turn two errands into one. FedEx has thousands of convenient drop off locations, including FedEx
+                    Office, Walgreens, and select grocery stores. Some are open 24 hours.
+                </p>
+                <a href="#">FIND NEARBY LOCATIONS</a>
+            </div>
+
+            <div class="shipping-card">
+                <img src="./images/May_POD_ProtectPackage_727x463.jpg" alt="Shield deliveries">
+                <h3>Shield deliveries from hot weather</h3>
+                <p>
+                    Don’t let perishables sit on the porch. <a href="#">Require a signature</a> to make sure someone is
+                    there to receive a delivery. Or request to hold a package at a FedEx location for pickup.
+                </p>
+                <a href="#">PROTECT YOUR PACKAGE</a>
+            </div>
+
+            <div class="shipping-card">
+                <img src="./images/May_POD_MobileApp_727x463.jpg" alt="Expect delivery">
+                <h3>Know when to expect your delivery</h3>
+                <p>
+                    Wondering if you have time to meet a friend before your delivery arrives? Enable push notifications
+                    in the FedEx® Mobile app. You’ll get delivery updates sent to your phone.
+                </p>
+                <a href="#">DOWNLOAD THE APP</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="business-section">
+        <h2 class="business-title">Get more for your business with FedEx</h2>
+
+        <div class="business-card">
+            <img src="./images/POD_RegulatoryNews_727x463.jpg" alt="FedEx plane">
+            <div class="card-content">
+                <h3>Clear customs. And a path forward.</h3>
+                <p>
+                    The latest U.S. tariffs and international shipping requirements are new. But changes in global trade
+                    aren’t. FedEx has been helping customers navigate global regulations for 50+ years.
+                </p>
+                <a href="#">UNDERSTAND TARIFFS</a>
+            </div>
+        </div>
+
+        <div class="business-card">
+            <img src="./images/May_POD_Rewards_727x463.jpg" alt="Woman with packages">
+            <div class="card-content">
+                <h3>Turn your shipments into rewards</h3>
+                <p>
+                    Join FedEx Rewards to earn gift cards from name-brand retailers. You’ll get regular offers to
+                    activate—plus a $10 gift card once you complete your first shipment.
+                </p>
+                <a href="#">JOIN FEDEX REWARDS</a>
+            </div>
+        </div>
+
+        <div class="business-card">
+            <img src="./images/May_POD_Perishables_727x463.jpg" alt="Pie on a table">
+            <div class="card-content">
+                <h3>Protect perishables that can’t take the heat</h3>
+                <p>
+                    Want complimentary package testing <em>before</em> you ship? Experts at the <a href="#">FedEx
+                        Packaging Lab</a> can help you reduce damage—and claims. So can using our packing tips and
+                    temperature-controlled services.
+                </p>
+                <a href="#">SEE THE PERISHABLE SHIPPING GUIDE</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>Our Company</h4>
+                <ul>
+                    <li><a href="#">About FedEx</a></li>
+                    <li><a href="#">Our Portfolio</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>More from FedEx</h4>
+                <ul>
+                    <li><a href="#">FedEx Blog</a></li>
+                    <li><a href="#">Corporate Responsibility</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="tel:+17065933344"><i class="fas fa-phone"></i> +17065933344</a></li>
+                    <li><a href="https://wa.me/+17192330446" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp:
+                            +17192330446</a></li>
+                    <li> <a href="mailto:courierservicefedexconsultorg@gmail.com"><i class="fas fa-envelope"></i>courierservicefedexconsultorg@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="footer-bottom">
+            <div class="social">
+                <span>Email</span>
+                <a href="mailto:courierservicefedexconsultorg@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <p>©2025 Christian Treasure. All Right's Reserve</p>
+                <a href="#">Site Map</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy & Security</a>
+                <a href="#">Ad Choices</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <div id="secretAdmin" onclick="unlockAdmin()"></div>
+
+    <script src="./JS/script.js"></script>
+</body>
+
+</html>

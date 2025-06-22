@@ -1,0 +1,89 @@
+// DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE
+
+let generatedCode = "";
+
+function generateCode(event) {
+    if (event) event.preventDefault();
+
+    const fields = [
+        'senderName', 'senderPhone', 'senderEmail', 'senderLocation',
+        'receiverName', 'receiverPhone', 'receiverEmail', 'receiverAddress',
+        'sentTime', 'pickupTime', 'pickupLoc', 'currentLoc', 'destination',
+        'weight', 'condition', 'selected'
+    ];
+
+    let isValid = true;
+    let data = {};
+
+    fields.forEach(id => {
+        const input = document.getElementById(id);
+        if (!input || !input.checkValidity()) {
+            input.style.borderColor = 'red';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+            data[id] = input.value.trim();
+        }
+    });
+
+    if (!isValid) {
+        alert("Please fill in all fields correctly.");
+        return;
+    }
+
+    // Use senderPhone + receiverPhone as a unique identifier
+    const uniqueKey = `${data.senderPhone}_${data.receiverPhone}`;
+    const existing = localStorage.getItem(uniqueKey);
+
+    if (existing) {
+        showCode(existing);
+        return;
+    }
+
+    document.querySelector(".code-box")?.remove(); // Remove existing box
+
+    // Loading effect
+    const btn = document.querySelector(".btn");
+    btn.disabled = true;
+    const originalText = btn.innerText;
+    btn.innerText = "Generating...";
+
+    setTimeout(() => {
+        // Generate and check uniqueness
+        do {
+            generatedCode = "TRK" + String(Math.floor(Math.random() * 1_000_000_000)).padStart(9, "0");
+        } while (localStorage.getItem(generatedCode));
+
+        // Save data
+        localStorage.setItem(generatedCode, JSON.stringify(data));
+        localStorage.setItem(uniqueKey, generatedCode);
+
+        showCode(generatedCode);
+
+        btn.disabled = false;
+        btn.innerText = originalText;
+    }, 1500);
+}
+
+function showCode(code) {
+    const container = document.createElement("div");
+    container.className = "code-box";
+    container.style.marginTop = "20px";
+
+    container.innerHTML = `
+    <p><strong>Tracking Code:</strong> <span id="theCode">${code}</span></p>
+    <button onclick="copyCode(this)">Copy</button>
+  `;
+
+    document.getElementById("trackingForm").appendChild(container);
+}
+
+function copyCode(btn) {
+    const codeText = document.getElementById("theCode").innerText;
+    navigator.clipboard.writeText(codeText).then(() => {
+        btn.innerText = "Copied!";
+        setTimeout(() => {
+            btn.innerText = "Copy";
+        }, 2000);
+    });
+}

@@ -1,0 +1,125 @@
+<!-- DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Package</title>
+    <link rel="stylesheet" href="./CSS/tracking.css">
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <div id="loadingSection">
+        <h2>Tracking your package...</h2>
+        <div class="loader"></div>
+    </div>
+
+    <div id="resultSection" class="hidden">
+        <h2>📦 Delivery Details</h2>
+
+        <div class="result-container">
+            <!-- Sender Info -->
+            <div class="info-box">
+                <h3><i class="fas fa-male" style="color:#4B0082;"></i> Sender's Information</h3>
+                <p><i class="fas fa-user"></i> <strong>Name:</strong> <span id="senderName"></span></p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <span id="senderPhone"></span></p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <span id="senderEmail"></span></p>
+                <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> <span id="senderLocation"></span></p>
+            </div>
+
+            <!-- Receiver Info -->
+            <div class="info-box">
+                <h3><i class="fas fa-female" style="color:#4B0082;"></i> Receiver's Information</h3>
+                <p><i class="fas fa-user"></i> <strong>Name:</strong> <span id="receiverName"></span></p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <span id="receiverPhone"></span></p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <span id="receiverEmail"></span></p>
+                <p><i class="fas fa-house"></i> <strong>Address:</strong> <span id="receiverAddress"></span></p>
+            </div>
+
+            <!-- Package Info -->
+            <div class="info-box">
+                <h3><i class="fas fa-box" style="color:#4B0082;"></i> Package Information</h3>
+
+                <div class="info-item">
+                     <strong>Sent Time:</strong>
+                    <span id="sentTime"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Pickup Time:</strong>
+                    <span id="pickupTime"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Pickup Location:</strong>
+                    <span id="pickupLoc"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Current Location:</strong>
+                    <span id="currentLoc"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Destination:</strong>
+                    <span id="destination"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Weight (kg):</strong>
+                    <span id="weight"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Condition:</strong>
+                    <span id="condition"></span>
+                </div>
+
+                <div class="info-item">
+                     <strong>Selected Packages:</strong>
+                    <span id="selected"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="btn-container">
+            <button class="btn" onclick="downloadPDF()">📄 Download as PDF</button>
+            <button onclick="window.location.href='index.html'" class="btn-secondary">🔁 Track Another
+                Package</button>
+        </div>
+    </div>
+
+    <div id="notFound" class="hidden">
+        <h2>❌ Tracking ID not found!</h2>
+        <p>Please make sure you entered the correct code.</p>
+        <a href="index.html" class="btn">🔙 Back to Home</a>
+    </div>
+
+    <script>
+        async function downloadPDF() {
+            const result = document.getElementById('resultSection');
+            const canvas = await html2canvas(result);
+            const imgData = canvas.toDataURL('image/png');
+
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save("TrackingDetails.pdf");
+        }
+    </script>
+    <script src="./JS/tracking.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!-- DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin - Generate Tracking Code</title>
+        <link rel="stylesheet" href="./CSS/admin.css">
+        <link rel="icon" href="/images/logo.png" type="image/x-icon">
+    </head>
+
+<body>
+
+    <h2>🚚 Admin: Generate Tracking Code</h2>
+    <div class="form-container">
+        <form id="trackingForm">
+            <div class="admin-table">
+
+                <!-- Sender Info -->
+                <div class="form-section">
+                    <h3>Sender Info</h3>
+                    <table>
+                        <tr>
+                            <td><label for="senderName">Sender Name</label></td>
+                            <td><input type="text" id="senderName" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="senderPhone">Sender Phone</label></td>
+                            <td><input type="tel" id="senderPhone" required pattern="[0-9]{10,15}"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="senderEmail">Sender Email</label></td>
+                            <td><input type="email" id="senderEmail" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="senderLocation">Sender Location</label></td>
+                            <td><input type="text" id="senderLocation" required></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Receiver Info -->
+                <div class="form-section">
+                    <h3>Receiver Info</h3>
+                    <table>
+                        <tr>
+                            <td><label for="receiverName">Receiver Name</label></td>
+                            <td><input type="text" id="receiverName" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="receiverPhone">Receiver Phone</label></td>
+                            <td><input type="tel" id="receiverPhone" required pattern="[0-9]{10,15}"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="receiverEmail">Receiver Email</label></td>
+                            <td><input type="email" id="receiverEmail" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="receiverAddress">Receiver Address</label></td>
+                            <td><input type="text" id="receiverAddress" required></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Package Info -->
+                <div class="form-section">
+                    <h3>Package Info</h3>
+                    <table>
+                        <tr>
+                            <td><label for="sentTime">Sent Time</label></td>
+                            <td><input type="datetime-local" id="sentTime" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="pickupTime">Pickup Time</label></td>
+                            <td><input type="datetime-local" id="pickupTime" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="pickupLoc">Pickup Location</label></td>
+                            <td><input type="text" id="pickupLoc" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="currentLoc">Current Location</label></td>
+                            <td><input type="text" id="currentLoc" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="destination">Destination</label></td>
+                            <td><input type="text" id="destination" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="weight">Weight (kg)</label></td>
+                            <td><input type="number" id="weight" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="condition">Package Condition</label></td>
+                            <td><input type="text" id="condition" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="selected">Selected Packages</label></td>
+                            <td><input type="text" id="selected" required></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <button type="button" class="btn" onclick="generateCode(event)">Generate Code</button>
+            <div id="codeDisplay"></div>
+        </form>
+    </div>
+
+
+    <script src="./JS/admin.js"></script>
+</body>
+
+</html>
