@@ -24,6 +24,7 @@
         <h2>📦 Delivery Details</h2>
 
         <div class="result-container">
+            <!-- Sender Info -->
             <div class="info-box">
                 <h3><i class="fas fa-male" style="color:#4B0082;"></i> Sender's Information</h3>
                 <p><i class="fas fa-user"></i> <strong>Name:</strong> <span id="senderName"></span></p>
@@ -32,6 +33,7 @@
                 <p><i class="fas fa-location-dot"></i> <strong>Location:</strong> <span id="senderLocation"></span></p>
             </div>
 
+            <!-- Receiver Info -->
             <div class="info-box">
                 <h3><i class="fas fa-female" style="color:#4B0082;"></i> Receiver's Information</h3>
                 <p><i class="fas fa-user"></i> <strong>Name:</strong> <span id="receiverName"></span></p>
@@ -40,46 +42,47 @@
                 <p><i class="fas fa-house"></i> <strong>Address:</strong> <span id="receiverAddress"></span></p>
             </div>
 
+            <!-- Package Info -->
             <div class="info-box">
                 <h3><i class="fas fa-box" style="color:#4B0082;"></i> Package Information</h3>
 
                 <div class="info-item">
-                    <strong>Sent Time:</strong>
+                     <strong>Sent Time:</strong>
                     <span id="sentTime"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Pickup Time:</strong>
+                     <strong>Pickup Time:</strong>
                     <span id="pickupTime"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Pickup Location:</strong>
+                     <strong>Pickup Location:</strong>
                     <span id="pickupLoc"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Current Location:</strong>
+                     <strong>Current Location:</strong>
                     <span id="currentLoc"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Destination:</strong>
+                     <strong>Destination:</strong>
                     <span id="destination"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Weight (kg):</strong>
+                     <strong>Weight (kg):</strong>
                     <span id="weight"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Condition:</strong>
+                     <strong>Condition:</strong>
                     <span id="condition"></span>
                 </div>
 
                 <div class="info-item">
-                    <strong>Selected Packages:</strong>
+                     <strong>Selected Packages:</strong>
                     <span id="selected"></span>
                 </div>
 
@@ -100,24 +103,39 @@
         <a href="index.html" class="btn">🔙 Back to Home</a>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyAm5oMFLKgo_T8JnQ67ZWr84Li_xSVMzIk",
-            authDomain: "tracking-code-d451f.firebaseapp.com",
-            databaseURL: "https://tracking-code-d451f-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "tracking-code-d451f",
-            storageBucket: "tracking-code-d451f.firebasestorage.app",
-            messagingSenderId: "215766794609",
-            appId: "1:215766794609:web:c67f12a8fc04cbe5ac36d0",
-            measurementId: "G-G5Q85P2134"
-        };
+        async function downloadPDF() {
+            const result = document.getElementById('resultSection');
+            const canvas = await html2canvas(result);
+            const imgData = canvas.toDataURL('image/png');
 
-        firebase.initializeApp(firebaseConfig);
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF();
+            const imgProps = pdf.getImageProperties(imgData);
+            const pdfWidth = pdf.internal.pageSize.getWidth();
+            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+            pdf.save("TrackingDetails.pdf");
+        }
     </script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyAJdVGin4DZyvTtmTg6WnhAendyBGEm2gs",
+    authDomain: "my-portfolio-8ce7d.firebaseapp.com",
+    databaseURL: "https://my-portfolio-8ce7d-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "my-portfolio-8ce7d",
+    storageBucket: "my-portfolio-8ce7d.firebasestorage.app",
+    messagingSenderId: "1042582859597",
+    appId: "1:1042582859597:web:42e61808d161c24100d104",
+    measurementId: "G-N3X8L94E7X"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+</script>
 
     <script src="./JS/tracking.js"></script>
 </body>

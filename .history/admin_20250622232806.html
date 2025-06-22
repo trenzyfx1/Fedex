@@ -20,6 +20,7 @@
         <form id="trackingForm">
             <div class="admin-table">
 
+                <!-- Sender Info -->
                 <div class="form-section">
                     <h3>Sender Info</h3>
                     <table>
@@ -42,6 +43,7 @@
                     </table>
                 </div>
 
+                <!-- Receiver Info -->
                 <div class="form-section">
                     <h3>Receiver Info</h3>
                     <table>
@@ -64,6 +66,7 @@
                     </table>
                 </div>
 
+                <!-- Package Info -->
                 <div class="form-section">
                     <h3>Package Info</h3>
                     <table>
@@ -108,21 +111,23 @@
             <div id="codeDisplay"></div>
         </form>
     </div>
+    <!-- Firebase SDKs (CDN-based for vanilla JS projects) -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
 
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyAm5oMFLKgo_T8JnQ67ZWr84Li_xSVMzIk",
-            authDomain: "tracking-code-d451f.firebaseapp.com",
-            databaseURL: "https://tracking-code-d451f-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "tracking-code-d451f",
-            storageBucket: "tracking-code-d451f.firebasestorage.app",
-            messagingSenderId: "215766794609",
-            appId: "1:215766794609:web:c67f12a8fc04cbe5ac36d0",
-            measurementId: "G-G5Q85P2134"
-        };
+        // Your Firebase config (no changes here)
+        apiKey: "AIzaSyAm5oMFLKgo_T8JnQ67ZWr84Li_xSVMzIk",
+    authDomain: "tracking-code-d451f.firebaseapp.com",
+    databaseURL: "https://tracking-code-d451f-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "tracking-code-d451f",
+    storageBucket: "tracking-code-d451f.firebasestorage.app",
+    messagingSenderId: "215766794609",
+    appId: "1:215766794609:web:c67f12a8fc04cbe5ac36d0",
+    measurementId: "G-G5Q85P2134"
+  };
 
+        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
     </script>

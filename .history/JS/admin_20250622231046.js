@@ -1,3 +1,5 @@
+// DEVELOPED AND DESIGNED BY ME : CHRISTIAN TREASURE
+
 let generatedCode = "";
 
 function generateCode(event) {
@@ -10,12 +12,24 @@ function generateCode(event) {
         'weight', 'condition', 'selected'
     ];
 
+    let isValid = true;
     let data = {};
 
     fields.forEach(id => {
         const input = document.getElementById(id);
-        data[id] = input ? input.value.trim() : "";
+        if (!input || !input.checkValidity()) {
+            input.style.borderColor = 'red';
+            isValid = false;
+        } else {
+            input.style.borderColor = '';
+            data[id] = input.value.trim();
+        }
     });
+
+    if (!isValid) {
+        alert("Please fill in all fields correctly.");
+        return;
+    }
 
     document.querySelector(".code-box")?.remove();
 
@@ -25,7 +39,7 @@ function generateCode(event) {
     btn.innerText = "Generating...";
 
     setTimeout(() => {
-        // Generate a random tracking code
+        // Generate tracking code
         generatedCode = "TRK" + String(Math.floor(Math.random() * 1_000_000_000)).padStart(9, "0");
 
         // Save to Firebase
@@ -36,12 +50,12 @@ function generateCode(event) {
                 btn.innerText = originalText;
             })
             .catch((error) => {
-                alert("❌ Failed to save tracking info.");
+                alert("Failed to save tracking info. Try again.");
                 console.error("Firebase error:", error);
                 btn.disabled = false;
                 btn.innerText = originalText;
             });
-    }, 1000);
+    }, 1500);
 }
 
 function showCode(code) {
