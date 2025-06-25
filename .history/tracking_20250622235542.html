@@ -91,48 +91,18 @@
             <button class="btn" onclick="downloadPDF()">📄 Download as PDF</button>
             <button onclick="window.location.href='index.html'" class="btn-secondary">🔁 Track Another
                 Package</button>
-            <button class="track-map-btn" onclick="startMapTracking()">🚚 Track on Map</button>
+                <button class="track-map-btn" onclick="startMapTracking()">🚚 Track on Map</button>
 
         </div>
     </div>
 
-    <div id="mapTrackingSection" class="hidden">
-        <h3>📍 Package In Transit</h3>
-        <div id="mapContainer">
-            <div id="road">
-                <div id="bus"></div>
-            </div>
-        </div>
-        <div class="controls">
-            <button onclick="pauseBus()">⏸️ Pause</button>
-            <button onclick="playBus()">▶️ Play</button>
-        </div>
-    </div>
-
+    
 
     <div id="notFound" class="hidden">
         <h2>❌ Tracking ID not found!</h2>
         <p>Please make sure you entered the correct code.</p>
         <a href="index.html" class="btn">🔙 Back to Home</a>
     </div>
-
-    <script>
-        async function downloadPDF() {
-            const result = document.getElementById('resultSection');
-            const canvas = await html2canvas(result);
-            const imgData = canvas.toDataURL('image/png');
-
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF();
-            const imgProps = pdf.getImageProperties(imgData);
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-            pdf.save("TrackingDetails.pdf");
-        }
-    </script>
-
 
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>

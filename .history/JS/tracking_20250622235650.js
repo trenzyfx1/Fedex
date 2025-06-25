@@ -71,14 +71,14 @@ let bus = null;
 let paused = false;
 
 function startMapTracking() {
-    document.getElementById('mapTrackingSection').classList.remove('hidden');
-    bus = document.getElementById('bus');
+  document.getElementById('mapTrackingSection').classList.remove('hidden');
+  bus = document.getElementById('bus');
 }
 
 function pauseBus() {
-    if (bus) bus.style.animationPlayState = 'paused';
+  if (bus) bus.style.animationPlayState = 'paused';
 }
 
 function playBus() {
-    if (bus) bus.style.animationPlayState = 'running';
+  if (bus) bus.style.animationPlayState = 'running';
 }
