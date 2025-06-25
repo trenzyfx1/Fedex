@@ -67,5 +67,3 @@ function copyCode(btn) {
     });
 }
 
-// Add this after 'set' inside the .then()
-firebase.database().ref("deliveries/" + generatedCode + "/trackingPaused").set(false);

@@ -104,28 +104,22 @@
     </div>
 
     <script>
-        function goToMap() {
-            const code = sessionStorage.getItem("trackingCode");
-            if (!code) return alert("No tracking code found.");
-
-            const now = Date.now(); // current timestamp
-            const ref = firebase.database().ref("deliveries/" + code);
-
-            ref.once("value").then(snapshot => {
-                const data = snapshot.val();
-                if (!data.startTime) {
-                    // If no start time, store it
-                    ref.update({ startTime: now }).then(() => {
-                        window.location.href = `track-visual.html?code=${code}`;
-                    });
-                } else {
-                    // Already started
-                    window.location.href = `track-visual.html?code=${code}`;
-                }
+    function goToMap() {
+        const code = sessionStorage.getItem("trackingCode");
+        if (code) {
+            const startTime = Date.now();
+            firebase.database().ref("deliveries/" + code).update({
+                trackingStartedAt: startTime
+            }).then(() => {
+                window.location.href = `track-visual.html?code=${code}`;
+            }).catch(() => {
+                alert("Failed to start tracking.");
             });
+        } else {
+            alert("No tracking code found.");
         }
-
-    </script>
+    }
+</script>
 
     <script>
         async function downloadPDF() {
