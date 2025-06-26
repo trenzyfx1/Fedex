@@ -78,7 +78,7 @@ function showMap(pickupCoords, destCoords) {
 
     map.fitBounds(route.getBounds());
 
-    const blinkingIcon = L.divIcon({ className: "blinking-dot", iconSize: [16, 16], iconAnchor: [8, 8] });
+    const blinkingIcon = L.divIcon({ className: "blinking-dot", iconSize: [16, 16], blinkingIcon });
     const pointer = L.marker(pickupCoords, { icon: blinkingIcon }).addTo(map);
 
     const totalSeconds = 72 * 3600;
