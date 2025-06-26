@@ -152,6 +152,28 @@ body {
     object-fit: contain;
 }
 
+#google_translate_element {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+}
+
+/* Optional: hide the Google icon & text */
+.goog-logo-link,
+.goog-te-gadget span {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    font-size: 14px;
+    color: #000;
+}
 
 
 .tracking-input {
